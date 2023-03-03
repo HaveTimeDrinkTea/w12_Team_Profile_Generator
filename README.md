@@ -82,6 +82,17 @@ SO THAT I have quick access to their email address and GitHub profiles.
 
 * You can use the provided variable `outputPath` to target this location.
 
+* The application should use Jest for running units and Inquirer for collecting input from the user. The application will be invoked by using the following command: 
+
+```
+   node index.js
+```
+
+* Aim to make your methods as pure as possible to allow simple testing. 
+
+* Test each class and verify that it generates an object with the correct structure and methods. The Jest tests have already been provided as part of the starter code.
+
+
 
 ## Table of Contents (Optional)
 
