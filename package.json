@@ -1,0 +1,32 @@
+{
+  "name": "w12_team_profile_generator",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaveTimeDrinkTea/w12_Team_Profile_Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HaveTimeDrinkTea/w12_Team_Profile_Generator/issues"
+  },
+  "homepage": "https://github.com/HaveTimeDrinkTea/w12_Team_Profile_Generator#readme",
+  "dependencies": {
+    "email-validator": "^2.0.4",
+    "inquirer": "^9.1.4"
+  },
+  "devDependencies": {
+    "jest": "^29.4.3"
+  }
+}
