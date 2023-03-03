@@ -51,9 +51,10 @@ SO THAT I have quick access to their email address and GitHub profiles.
     * `name`, 
     * Employee `id`, 
     * `email`, 
-    * `officeNumber
+    * `officeNumber`
 
   * When a user enters those requirements, the user is presented with a menu with the option to:
+  
     * ***Add an engineer***
       * When a user selects the engineer option, the user is prompted to enter the following and then taken back to the menu:
         * Engineer's `name`
@@ -80,6 +81,7 @@ SO THAT I have quick access to their email address and GitHub profiles.
 * Write it to a file named `team.html` in the output folder.
 
 * You can use the provided variable `outputPath` to target this location.
+
 
 ## Table of Contents (Optional)
 
