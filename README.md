@@ -30,11 +30,11 @@ SO THAT I have quick access to their email address and GitHub profiles.
 
 * The classes are
   * `Employee` parent class with 
-    * properties name, id, email and 
-    * methods getName(), getId(), getEmail() and getRole() which will return 'Employee'. 
+    * properties `name`, `id`, `email` and 
+    * methods `getName()`, `getId()`, `getEmail()` and `getRole()` (which defaults to `Employee`). 
   * `Manager` class will extend `Employee` class and have
     * property `officeNumber`
-    * method `getRole()` —overridden to return '***Manager***'
+    * methods `getRole()` (—overridden to return '***Manager***') and `getOfficeNumber()`
   * `Engineer` class will extend `Employee` class and have
     * property `github`—GitHub username
     * methods `getGithub()` and `getRole()` —overridden to return '***Engineer***'
