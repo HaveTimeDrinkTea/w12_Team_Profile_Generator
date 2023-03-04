@@ -6,7 +6,7 @@
   "type": "module",
   "directories": {
     "lib": "lib",
-    "test": "test"
+    "test": "__test__"
   },
   "scripts": {
     "test": "jest"
