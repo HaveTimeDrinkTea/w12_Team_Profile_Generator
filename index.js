@@ -75,17 +75,17 @@ import render from './src/page-template.js';
 
 let welcomeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
    + `                 👯‍♂️🕺🏻👯‍♀️ GOOD DAY GOOD DAY! 👯‍♀️🕺🏻👯‍♂️\n`
-   + `  Let's get WERKING and do some fabulous HR Admin Werk! \n \n`
-   + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
+   + `      Let's get WERKING and do some fabulous HR Admin Werk! \n \n`
+   + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n`
 
    
 let goodByeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
-   + `                🏅  ConDRAGtulations! 🏅 \n`
+   + `                 🏅  ConDRAGtulations! 🏅 \n`
    + `                 I am impressed, my dear!  \n`
    + `    You have successfully created a very dashing team webpage at \n` + 
-   +  outputPath + `\n`
-   + ` So, go make a cuppa 🍵 and treat yourself to a choccy bicky 🍪 (or two!) \n`
-   + `               Now, you can SHASHAY away! \n \n`
+   + `             team.html in the output directory \n`
+   + `So, go make a cuppa 🍵 and treat yourself to a choccy bicky 🍪 (or two!) \n`
+   + `               Now, my dear, SHASHAY away. \n \n`
    + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`  
    
    
@@ -96,10 +96,12 @@ let goodByeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷�
 
 let teamArr = [];
 
+let promptMsg = `So let's go!`;
+
 const qnMain = [
    {
       type: 'list',
-      message: 'Which role are you adding to the team?',
+      message: `Which role will you be adding to the team?`,
       name: 'addTeamRole',
       choices: ["Manager", "Engineer", "Intern", "No one else"],
    }, 
@@ -128,18 +130,28 @@ const qnAddManager = [
       type: 'input',
       message: 'and the email?',
       name: 'mgrEmail',
-   },
+      validate(text) {
+         let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+         if(!regexEmail.test(text)) {
+            return 'Dear dear, do try again with that email address ...'
+         };
+         return true;
+      },     
+      waitUserInput: true, 
+   },   
    {
       type: 'input',
       message: 'and the tel number?',
       name: 'mgrOfficeTel',
+      validate(text) {
+         let regexTel = /^\d{4}$/g;
+         if(!regexTel.test(text)) {
+            return "Dear dear! that is not a valid four digit telephone extension!"
+         };
+         return true;
+      },
+      waitUserInput: true, 
    },
-   // {
-   //    type: 'list',
-   //    name: 'addMore',
-   //    message: '\n ~~~~~~~~~~ \n Good job!! \n Any more employees to add?',
-   //    choices: ['Oh yes...', 'Thank goodness no more!'],
-   // } 
 ];
 
 
@@ -166,6 +178,13 @@ const qnAddEngineer = [
       type: 'input',
       message: 'and their email?',
       name: 'engEmail',
+      validate(text) {
+         if (!(emailValidator.validate(text))) {
+            return 'Dear dear, do try again with that email address ...';
+         };
+         return true;
+      },
+      waitUserInput: true,          
    },
    {
       type: 'input',
@@ -175,7 +194,7 @@ const qnAddEngineer = [
 ];
 
 const qnAddIntern = [
-   //-- Engineer
+   //-- Intern
    {
       type: 'input',
       message: 'The name of this intern of yours?',
@@ -197,11 +216,25 @@ const qnAddIntern = [
       type: 'input',
       message: 'and their email?',
       name: 'intEmail',
+      validate(text) {
+         if (!(emailValidator.validate(text))) {
+            return 'Dear dear, do try again with that email address ...';
+         };
+         return true;
+      },
+      waitUserInput: true,      
    },
    {
       type: 'input',
       message: 'and lastly their school?',
       name: 'intSchool',
+      validate(text) {
+         if (text === "" ) {
+            return 'Are you sure this intern went to a {blank} school?! Please try again, dear!';
+         }
+         return true;
+      },
+      waitUserInput: true,
    },
 ];
 
@@ -214,53 +247,83 @@ const qnAddIntern = [
 //-- asynchronously call inquirer.js 
 //-- and write to the file and increment file number for the next run.
 
+
+
 const promptUserMenu = () => {
    return inquirer.prompt(qnMain)
    .then(respMenu => {
       if (respMenu.addTeamRole === "Manager") {
             inquirer.prompt(qnAddManager).then(respMgr => {
-               const mgrObj = new Manager(respMgr.mgrName, respMgr.mgrID, respMgr.mgrEmail, respMgr.mgrOfficeTel);
+               const mgrObj = new Manager(
+                     respMgr.mgrName
+                     , respMgr.mgrID
+                     , respMgr.mgrEmail
+                     , respMgr.mgrOfficeTel
+                     );
                teamArr.push(mgrObj);
-               console.log("teamArr:", teamArr)
-               console.log("typeof teamArr", typeof teamArr);
-               console.log("=========");
+
+               promptMsg = `\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ `+ 
+                           `\n Good job Adding a Manager!!` +
+                           `\n Now any more employees to add?` +
+                           `\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  \n`;
                promptUser();
             })
 
-         } else if (respMenu.addTeamRole === "Engineer") {
-            inquirer.prompt(qnAddEngineer).then(respEng => {
-               const engObj = new Engineer(respEng.engName, respEng.engID, respEng.engEmail, respEng.engGithub);
-               teamArr.push(engObj);
-               console.log("teamArr:", teamArr)
-               console.log("typeof teamArr", typeof teamArr);
-               console.log("=========");
-               promptUser();
-            })
+      } else if (respMenu.addTeamRole === "Engineer") {
+         
+         inquirer.prompt(qnAddEngineer)
+            .then(respEng => {
+               const engObj = new Engineer(
+                  respEng.engName
+                  , respEng.engID
+                  , respEng.engEmail
+                  , respEng.engGithub
+               );
+            teamArr.push(engObj);
+            
+            promptMsg = `\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ `+ 
+            `\n Good job Adding an Engineer!!` +
+            `\n Now any more employees to add?` +
+            `\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  \n`;
+            
+            promptUser();
+            });
 
-         } else if (respMenu.addTeamRole === "Intern") {
-            inquirer.prompt(qnAddIntern).then(respInt => {
-               const intObj = new Intern(respInt.intName, respInt.intID, respInt.intEmail, respInt.intSchool);
-               teamArr.push(intObj);
-               console.log("teamArr:", teamArr)
-               console.log("typeof teamArr", typeof teamArr);
-               console.log("=========");
-               promptUser();
+      } else if (respMenu.addTeamRole === "Intern") {
+         
+         inquirer.prompt(qnAddIntern)
+            .then(respInt => {
+               const intObj = new Intern(
+                  respInt.intName
+                  , respInt.intID
+                  , respInt.intEmail
+                  , respInt.intSchool
+               );
+            teamArr.push(intObj);
+            
+            promptMsg = `\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ `+ 
+            `\n Good job Adding an Intern!!` +
+            `\n Now any more employees to add?` +
+            `\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  \n`;
+            
+            promptUser();
             })
-         } else {
-         console.log("Final team:", teamArr);
-         console.log("final final typeof teamArr", typeof teamArr);
-         // renderHTML(); 
+      } else {
+         
+         console.log(`\n ~~~~~~~~~~ \n Good job!! \n ~~~~~~~~~~ \n`);
+         renderHTML(); 
       };
-
    });
 };
+
 
 
 const promptUser = async () => {
 
    try {
-      // console.log(welcomeMsg);
+
       // Call inquirer.js
+      console.log(promptMsg);
       const team = await promptUserMenu();
 
    } catch (err) {
@@ -270,11 +333,9 @@ const promptUser = async () => {
 
 function renderHTML() {
          // Generate the markdown file
-         console.log("Inside prompt user async readMeFile:", readMeFile);
-         const readMeFile = render(team);
-         await writeFileAsync(outputPath, readMeFile);
+         const readMeFile = render(teamArr);
+         writeFileAsync(outputPath, readMeFile);
          console.log(goodByeMsg);
-
 }
 
 
@@ -283,34 +344,4 @@ function renderHTML() {
 //--========================================================   
 console.log(welcomeMsg);
 promptUser();
-
-
-
-
-
-
-
-
-
-// const promptUserMain = () => {
-//    return inquirer.prompt(qnAddTeamMemberArr)
-//    .then(respMain => {
-//       switch(respMain.addTeamRole) {
-
-//          case "Manager":
-//             initMgr();
-//             break;
-//          case "Engineer":
-//             initMgr();
-//             break;
-//          case "Intern":
-//             initMgr();
-//             break;            
-//          default: 
-//          console.log("bye!");
-//          return;
-
-//       };
-
-// })};
 
