@@ -157,6 +157,7 @@ A command line application which allows a user to record details of the members 
 * Allow the set up of multiple teams
 * Allow assignment of intern(s) to engineer or manager
 * Allow a "super manager" in case of multiple teams
+* Allow employee ID to be sequentially generated without any user input. This can be achieved by storing the last employee ID in a log.txt file. 
 
 
 ## Testing
@@ -166,6 +167,6 @@ A command line application which allows a user to record details of the members 
 
 ## Contribution
 * If you would like to contribute to this application, please contact me via
-  * GitHub [https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator](https://github.com/HaveTimeDrinkTea/w11_Professional_README_Generator)
+  * GitHub [https://github.com/HaveTimeDrinkTea](https://github.com/HaveTimeDrinkTea)
   * email to <havetimedrinktea@gmail.com>
 

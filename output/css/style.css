@@ -1,0 +1,309 @@
+body {
+  font-family: Arial;
+  font-size: 67.5%;
+  color: var(--colorWhite);
+  background-color: var(--colorTealDarker);
+}
+
+a {
+  color: var(--fontVintage);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.1s;
+}
+
+a:hover {
+  color: var(--colorLemon);
+  text-shadow: 2px 2px var(--colorCharcoal);
+}
+
+p {
+  color: var(--colorWhite);
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+
+
+input[type="text"] {
+  font-size: 100%;
+}
+
+
+
+
+/* header and footer */
+
+.header
+, .main
+, .footer {
+  max-width: 85vw;
+  padding: 10px;
+  margin: 30px auto !important;
+  text-align: center;
+  border: solid 0.3rem var(--colorWhite);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px 0px;
+  border-radius: 5px;
+  color: var(--colorWhite);
+}
+
+
+
+.header {
+  background-color: var(--colorElectricBlue);
+  /* max-height: 400px !important; */
+}
+
+.main {
+  background-color: var(--colorGreen);
+  /* max-height: 400px !important; */
+}
+
+.footer {
+  background-color: var(--colorBrownMonkey);
+  font-size: 1rem;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+  color: var(--colorWhite);
+  border-radius: 0;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 20px !important;
+  /* border-bottom: 10px solid black; */
+
+}
+
+.team-area {
+  background-color: var(--colorOrange);
+}
+
+header::after,
+footer::after {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 2px;
+}
+
+
+ul#footerNav li {
+  display: inline;
+  padding: 40px;
+}
+
+
+ul#footerNav li  a {
+  font-size: 2rem;
+  font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+  border: 0;
+  color: var(--fontVintage);
+}
+
+ul#footerNav li  a,
+ul#footerNav li  a:focus {
+  color: var(--fontVintage);
+}
+
+ul#footerNav li a:hover,
+ul#footerNav li a:focus:hover, 
+ul#footerNav li a.active:hover {
+  color: var(--colorTealMedium);
+  text-shadow: 1px 1px var(--colorGreenPale);
+}
+
+.footerP {
+  font-style: italic;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.footerTags {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: var(--colorWheat);
+}
+
+.footerCopyright {
+  font-size: 1rem;
+  margin-top: 0px;
+  font-style: italic;
+}
+
+/* global text styling */
+
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--colorWhite);
+  text-transform: capitalize;
+  text-align: center;
+  padding-top: 8rem;
+}
+
+.h2Fore {
+  font-size: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 80%;
+  text-align: center;
+  margin: 2rem auto;
+  border: 0.3rem solid var(--colorWhite);
+  background-color: var(--colorPink);
+}
+
+h3 {
+  font-size: 2.3em;
+  text-align: center;
+  color: var(--colorWhite);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+
+.h3Top {
+  padding-top: 2rem;
+}
+
+.h3Middle {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+}
+
+.h3Bottom {
+  padding-bottom: 2rem;
+}
+
+h4 {
+  font-size: 1.7rem;
+  text-align: center;
+  color: var(--colorWhite);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.h4IconDesc {
+  padding-top: 1rem;
+
+}
+
+h5, 
+h6 {
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* forms */
+
+
+
+
+
+/* basic structural */
+
+.hide {
+  display: none;
+}
+
+.visible {
+  display: inline;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+/* cards */
+
+.card-header {
+  border: 0.2rem solid var(--colorWhite) !important;
+  background-color: var(--colorElectricBlue);
+  padding: 0px;
+  margin: 0;
+  font-size: 1rem;
+}
+
+
+.card-body {
+  font-size: 1.5rem;
+  padding: 2px;
+  margin: 0 !important;
+  background-color: var(--colorGreen);
+  border: 0.1rem solid var(--colorWhite) !important;
+}
+
+.list-group {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  margin: 0 !important;
+  width: 100%;
+  text-align: center;
+  background-color: var(--colorOrange);
+  border: 0.1rem solid var(--colorWhite) !important;
+  outline: auto;
+}
+
+.list-group-item {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  margin: 0 !important;
+  width: 100%;
+  text-align: center;
+  background-color: var(--colorOrange);
+  border: 0.1rem solid var(--colorWhite) !important;
+  outline: auto;
+}
+
+.attr{
+  font-size: 0.9rem;
+  padding: 3px;
+  background-color: var(--colorPink);
+}
+
+
+/* search cards */
+
+.searchBtnsRow {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.cardButtons {
+  border: 0 !important;
+  padding: 0;
+  margin: 0;
+  background-color: var(--colorElectricBlue) !important;
+}
+
+.card-body-btn {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.foreDesc {
+  font-size: 0.8rem;
+  line-height: 0rem;
+}
+
+
+
