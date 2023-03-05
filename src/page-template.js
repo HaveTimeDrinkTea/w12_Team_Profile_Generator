@@ -1,4 +1,6 @@
 // creates the team
+
+
 const generateTeam = team => {
 
     // creates the manager html
@@ -80,8 +82,9 @@ const generateTeam = team => {
 }
 
 // exports function to generate entire page
-module.exports = team => {
+// module.exports = team => {
 
+export default function render(team) {
     return `
     <!DOCTYPE html>
 <html lang="en">
