@@ -114,14 +114,18 @@ SO THAT I have quick access to their email address and GitHub profiles.
 
 ### Screen Dumps:
 
-[screen dump1](assets/images/)
 
 
+![screen dump](assets/images/)
+
+
+### Sample team.html Page:
+[Sample team.html page](output/team.html)
 
 
 ## Credits
 
-* this [thingie](https://)
+* [regexpal](https://www.regexpal.com) to help with formulating regex tests.
 
 
 
@@ -136,16 +140,27 @@ MIT License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg
 ## Features
 
 ### Main Features
-* 
+A command line application which allows a user to record details of the members of a team.
+* Upon running the application, the user is asked to enter the team manager's information. 
 
+
+* All the user inputs are validated:
+  ** Team member name and intern's school name cannot be blank.
+  ** Team member name and intern's school name will have capital case.
+  ** Manager's telephone extension can only be numeric and has to be of 4-digit length.
+  ** All employee IDs are to be 3-digit
+  ** All emails are to be of the right email format.
   
   
 ### Future Developments
-* 
+* Verify Engineer's GitHub user name against GitHub API
+* Allow the set up of multiple teams
+* Allow assignment of intern(s) to engineer or manager
+* Allow a "super manager" in case of multiple teams
 
 
 ## Testing
-* This 
+* This application has been tested as part of the starter code test using Jest.js. These are tests on the `Employee`, `Manager`, `Engineer` and `Intern` objects only.
 
 
 
