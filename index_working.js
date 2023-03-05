@@ -96,14 +96,14 @@ let goodByeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷�
 
 let teamArr = [];
 
-const qnMain = [
-   {
-      type: 'list',
-      message: 'Which role are you adding to the team?',
-      name: 'addTeamRole',
-      choices: ["Manager", "Engineer", "Intern", "No one else"],
-   }, 
-]   
+// const qnAddTeamMemberArr = [
+//    {
+//       type: 'list',
+//       message: 'Which role are you adding to the team?',
+//       name: 'addTeamRole',
+//       choices: ["Manager", "Engineer", "Intern", "No one else"],
+//    }, 
+// ]   
 
 const qnAddManager = [
    //-- Manager
@@ -132,7 +132,7 @@ const qnAddManager = [
    {
       type: 'input',
       message: 'and the tel number?',
-      name: 'mgrOfficeTel',
+      name: 'mgrOfficeNumber',
    },
    // {
    //    type: 'list',
@@ -140,69 +140,6 @@ const qnAddManager = [
    //    message: '\n ~~~~~~~~~~ \n Good job!! \n Any more employees to add?',
    //    choices: ['Oh yes...', 'Thank goodness no more!'],
    // } 
-];
-
-
-const qnAddEngineer = [
-   //-- Engineer
-   {
-      type: 'input',
-      message: 'The name of this engineer of yours?',
-      name: 'engName',
-      validate(text) {
-         if (text === "" ) {
-            return 'Oh dear! Blankety blank is not a good name! Please tell me the first name!';
-         }
-         return true;
-      },
-      waitUserInput: true,
-   },
-   {
-      type: 'input',
-      message: 'and the ID?',
-      name: 'engID',
-   },
-   {
-      type: 'input',
-      message: 'and their email?',
-      name: 'engEmail',
-   },
-   {
-      type: 'input',
-      message: 'and lastly their GitHub user name?',
-      name: 'engGithub',
-   },
-];
-
-const qnAddIntern = [
-   //-- Engineer
-   {
-      type: 'input',
-      message: 'The name of this intern of yours?',
-      name: 'intName',
-      validate(text) {
-         if (text === "" ) {
-            return 'Oh dear! Blankety blank is not a good name! Please tell me the first name!';
-         }
-         return true;
-      },
-      waitUserInput: true,
-   },
-   {
-      type: 'input',
-      message: 'and their ID?',
-      name: 'intID',
-   },
-   {
-      type: 'input',
-      message: 'and their email?',
-      name: 'intEmail',
-   },
-   {
-      type: 'input',
-      message: 'and lastly their school?',
-      name: 'intSchool',
-   },
 ];
 
 
@@ -214,76 +151,47 @@ const qnAddIntern = [
 //-- asynchronously call inquirer.js 
 //-- and write to the file and increment file number for the next run.
 
-const promptUserMenu = () => {
-   return inquirer.prompt(qnMain)
-   .then(respMenu => {
-      if (respMenu.addTeamRole === "Manager") {
-            inquirer.prompt(qnAddManager).then(respMgr => {
-               const mgrObj = new Manager(respMgr.mgrName, respMgr.mgrID, respMgr.mgrEmail, respMgr.mgrOfficeTel);
-               teamArr.push(mgrObj);
-               console.log("teamArr:", teamArr)
-               console.log("typeof teamArr", typeof teamArr);
-               console.log("=========");
-               promptUser();
-            })
-
-         } else if (respMenu.addTeamRole === "Engineer") {
-            inquirer.prompt(qnAddEngineer).then(respEng => {
-               const engObj = new Engineer(respEng.engName, respEng.engID, respEng.engEmail, respEng.engGithub);
-               teamArr.push(engObj);
-               console.log("teamArr:", teamArr)
-               console.log("typeof teamArr", typeof teamArr);
-               console.log("=========");
-               promptUser();
-            })
-
-         } else if (respMenu.addTeamRole === "Intern") {
-            inquirer.prompt(qnAddIntern).then(respInt => {
-               const intObj = new Intern(respInt.intName, respInt.intID, respInt.intEmail, respInt.intSchool);
-               teamArr.push(intObj);
-               console.log("teamArr:", teamArr)
-               console.log("typeof teamArr", typeof teamArr);
-               console.log("=========");
-               promptUser();
-            })
-         } else {
-         console.log("Final team:", teamArr);
-         console.log("final final typeof teamArr", typeof teamArr);
-         // renderHTML(); 
-      };
-
-   });
-};
+const promptUserMgr = () => {
+   return inquirer.prompt(qnAddManager)
+   .then(respMgr => {
+      const managerObj = new Manager(respMgr.mgrName, respMgr.mgrID, respMgr.mgrEmail, respMgr.mgrOfficeNumber);
+      teamArr.push(managerObj);
+      console.log("teamArr:", teamArr)
+      console.log("typeof teamArr", typeof teamArr);
+      console.log("=========");
+      return teamArr;
+})};
 
 
-const promptUser = async () => {
+
+const init = async () => {
 
    try {
-      // console.log(welcomeMsg);
+      console.log(welcomeMsg);
       // Call inquirer.js
-      const team = await promptUserMenu();
+      const team = await promptUserMgr();
+      
+      // Generate the markdown file
+      console.log("IS IT HERE? team:", team);
+      console.log("typeof team", typeof team);
 
+      const readMeFile = render(team);
+
+      console.log("readMeFile:", readMeFile);
+
+      await writeFileAsync(outputPath, readMeFile);
+      console.log(goodByeMsg);
    } catch (err) {
       console.log(err);
    }
 };
 
-function renderHTML() {
-         // Generate the markdown file
-         console.log("Inside prompt user async readMeFile:", readMeFile);
-         const readMeFile = render(team);
-         await writeFileAsync(outputPath, readMeFile);
-         console.log(goodByeMsg);
-
-}
-
 
 //--========================================================
 //-- 5. Run inquirer.js
 //--========================================================   
-console.log(welcomeMsg);
-promptUser();
 
+init();
 
 
 
