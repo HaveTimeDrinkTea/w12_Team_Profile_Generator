@@ -145,11 +145,11 @@ A command line application which allows a user to record details of the members 
 
 
 * All the user inputs are validated:
-  ** Team member name and intern's school name cannot be blank.
-  ** Team member name and intern's school name will have capital case.
-  ** Manager's telephone extension can only be numeric and has to be of 4-digit length.
-  ** All employee IDs are to be 3-digit
-  ** All emails are to be of the right email format.
+  * Team member name and intern's school name cannot be blank.
+  * Team member name and intern's school name will have capital case.
+  * Manager's telephone extension can only be numeric and has to be of 4-digit length.
+  * All employee IDs are to be 3-digit
+  * All emails are to be of the right email format (name@domain.tld).
   
   
 ### Future Developments
@@ -160,7 +160,7 @@ A command line application which allows a user to record details of the members 
 
 
 ## Testing
-* This application has been tested as part of the starter code test using Jest.js. These are tests on the `Employee`, `Manager`, `Engineer` and `Intern` objects only.
+* This application has been tested as part of the starter code test using Jest.js. These are tests on the `Employee`, `Manager`, `Engineer` and `Intern` classes only.
 
 
 
