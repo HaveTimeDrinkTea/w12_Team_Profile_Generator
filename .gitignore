@@ -6,6 +6,7 @@ node_modules/
 test.html
 test.js
 index_orig.html
+index_copy.html
 
 # Logs
 logs

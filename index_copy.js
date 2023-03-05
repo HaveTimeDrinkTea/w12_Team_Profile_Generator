@@ -79,12 +79,11 @@ let welcomeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷�
    + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n`
 
    
-let goodByeMsg = `\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
+let goodByeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`
    + `                 🏅  ConDRAGtulations! 🏅 \n`
    + `                 I am impressed, my dear!  \n`
-   + `    You have successfully created a very dashing team webpage! \n`
-   + `  The team.html file is now safely stored in the output directory \n`
-   + outputPath + `\n`
+   + `    You have successfully created a very dashing team webpage at \n` + 
+   + `             team.html in the output directory \n`
    + `So, go make a cuppa 🍵 and treat yourself to a choccy bicky 🍪 (or two!) \n`
    + `               Now, my dear, SHASHAY away. \n \n`
    + `✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷ \n\n`  
@@ -104,7 +103,7 @@ const qnMain = [
       type: 'list',
       message: `Which role will you be adding to the team?`,
       name: 'addTeamRole',
-      choices: ["Engineer", "Intern", "No one else"],
+      choices: ["Manager", "Engineer", "Intern", "No one else"],
    }, 
 ]   
 
@@ -126,14 +125,6 @@ const qnAddManager = [
       type: 'input',
       message: 'and the ID?',
       name: 'mgrID',
-      validate(text) {
-         let regexTel = /^\d{3}$/g;
-         if(!regexTel.test(text)) {
-            return "Silly you! You do know that Employee IDs are all 3 digits!"
-         };
-         return true;
-      },
-      waitUserInput: true, 
    },
    {
       type: 'input',
@@ -182,14 +173,6 @@ const qnAddEngineer = [
       type: 'input',
       message: 'and the ID?',
       name: 'engID',
-      validate(text) {
-         let regexTel = /^\d{3}$/g;
-         if(!regexTel.test(text)) {
-            return "Silly you! You do know that Employee IDs are all 3 digits!"
-         };
-         return true;
-      },
-      waitUserInput: true, 
    },
    {
       type: 'input',
@@ -228,14 +211,6 @@ const qnAddIntern = [
       type: 'input',
       message: 'and their ID?',
       name: 'intID',
-      validate(text) {
-         let regexTel = /^\d{3}$/g;
-         if(!regexTel.test(text)) {
-            return "Silly you! You do know that Employee IDs are all 3 digits!"
-         };
-         return true;
-      },
-      waitUserInput: true, 
    },
    {
       type: 'input',
@@ -274,38 +249,32 @@ const qnAddIntern = [
 
 
 
-function toCapitalize (str) {
-   return str.split(" ").map(word => {
-      return word.substring(0, 1).toUpperCase() + word.substring(1);
-   }).join(" ");
-};
-
-
-
-const promptUserMgr = () => {
-   return inquirer.prompt(qnAddManager)
-   .then(respMenu => {
-      const mgrObj = new Manager(
-         toCapitalize(respMenu.mgrName)
-         , respMenu.mgrID
-         , respMenu.mgrEmail
-         , respMenu.mgrOfficeTel
-         );
-      teamArr.push(mgrObj);
-      promptUser();
-
-   });
-};
-
 const promptUserMenu = () => {
    return inquirer.prompt(qnMain)
    .then(respMenu => {
+      if (respMenu.addTeamRole === "Manager") {
+            inquirer.prompt(qnAddManager).then(respMgr => {
+               const mgrObj = new Manager(
+                     respMgr.mgrName
+                     , respMgr.mgrID
+                     , respMgr.mgrEmail
+                     , respMgr.mgrOfficeTel
+                     );
+               teamArr.push(mgrObj);
 
-      if (respMenu.addTeamRole === "Engineer") {
+               promptMsg = `\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ `+ 
+                           `\n Good job Adding a Manager!!` +
+                           `\n Now any more employees to add?` +
+                           `\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  \n`;
+               promptUser();
+            })
+
+      } else if (respMenu.addTeamRole === "Engineer") {
+         
          inquirer.prompt(qnAddEngineer)
             .then(respEng => {
                const engObj = new Engineer(
-                  toCapitalize(respEng.engName)
+                  respEng.engName
                   , respEng.engID
                   , respEng.engEmail
                   , respEng.engGithub
@@ -325,10 +294,10 @@ const promptUserMenu = () => {
          inquirer.prompt(qnAddIntern)
             .then(respInt => {
                const intObj = new Intern(
-                  toCapitalize(respInt.intName)
+                  respInt.intName
                   , respInt.intID
                   , respInt.intEmail
-                  , toCapitalize(respInt.intSchool)
+                  , respInt.intSchool
                );
             teamArr.push(intObj);
             
@@ -341,7 +310,7 @@ const promptUserMenu = () => {
             })
       } else {
          
-         console.log(`\n ~~~~~~~~~~ \n Thank you! \n ~~~~~~~~~~`);
+         console.log(`\n ~~~~~~~~~~ \n Good job!! \n ~~~~~~~~~~ \n`);
          renderHTML(); 
       };
    });
@@ -349,21 +318,13 @@ const promptUserMenu = () => {
 
 
 
-
 const promptUser = async () => {
 
    try {
 
-      if (teamArr.length === 0) {
-         //-- add manager
-
-         const team = await promptUserMgr();
-      } else {
-         console.log(promptMsg);
-         const team = await promptUserMenu();
-      }
       // Call inquirer.js
-
+      console.log(promptMsg);
+      const team = await promptUserMenu();
 
    } catch (err) {
       console.log(err);
