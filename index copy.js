@@ -92,16 +92,16 @@ let goodByeMsg = `\n\n\n✤∷❁∷✤∷❁∷✤∷❁∷✤∷❁∷✤∷�
 //-- 3. Set Set Question for inquirer.js
 //--========================================================   
 
-let teamArr = [];
 
-// const qnAddTeamMemberArr = [
-//    {
-//       type: 'list',
-//       message: 'Which role are you adding to the team?',
-//       name: 'addTeamRole',
-//       choices: ["Manager", "Engineer", "Intern", "No one else"],
-//    }, 
-// ]   
+
+const qnAddTeamMemberArr = [
+   {
+      type: 'list',
+      message: 'Which role are you adding to the team?',
+      name: 'addTeamRole',
+      choices: ["Manager", "Engineer", "Intern", "No one else"],
+   }, 
+]   
 
 const qnAddManager = [
    //-- Manager
@@ -140,6 +140,43 @@ const qnAddManager = [
    // } 
 ];
 
+const qnAddEngineer = [
+   //-- Engineer
+   {
+      type: 'input',
+      message: 'Ok! So the name of the engineer is?',
+      name: 'engName',
+      validate(text) {
+         if (text === "" ) {
+            return 'Oh dear! Blankety blank is not a good name! Please tell me the first name!';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+   {
+      type: 'list',
+      name: 'addMore',
+      message: '\n ~~~~~~~~~~ \n Good job!! \n Any more employees to add?',
+      choices: ['Oh yes...', 'Thank goodness no more!'],
+   } 
+];
+
+const qAddIntern = [
+   //-- Intern
+   {
+      type: 'input',
+      message: "Ah! New intern eh? So what is the intern's name?",
+      name: 'intName',
+      validate(text) {
+         if (text === "" ) {
+            return 'Oh dear! Blankety blank is not a good name! Please tell me the first name!';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   }, 
+]
 
 
 //--========================================================
@@ -150,15 +187,130 @@ const qnAddManager = [
 //-- and write to the file and increment file number for the next run.
 
 // let teamMemberArr = [{name: "Pei", id:"101", email: "lah@emai.com", officeNumber: "123445874367"}];
-
-const promptUser = () => {
+   
+const mgrMenu = () => {
    return inquirer.prompt(qnAddManager)
-   .then(respMgr => {
-      const managerObj = new Manager(respMgr.mgrName, respMgr.mgrID, respMgr.mgrEmail, respMgr.mgrOfficeNumber);
-      teamArr.push(managerObj);
-      console.log("teamArr:", teamArr)
-      return teamArr;
-})};
+   .then(function(respMgr) {
+      const mgrAdd = new Manager(
+         respMgr.mgrName
+         , respMgr.mgrID
+         , respMgr.mgrEmail
+         , respMgr.mgrOfficeNumber
+         );
+         console.log("In Manager teamMemberArr:", teamMemberArr);
+         console.log("manager:", mgrAdd);
+         // teamMemberArr.concat(mgrAdd);
+         // console.log("In Manager Input after concat - teamMemberArr:",teamMemberArr);
+         // if (respMgr.addMore === 'Oh yes...') {
+         //    return mainMenu();
+         // }
+   });
+}
+
+const subMenuMgr = async () => {
+
+      console.log(welcomeMsg);
+   
+      try {
+   
+         const resMgr = await mgrMenu();
+         console.log("resMgr:", resMgr);
+         console.log(typeof resMgr);
+   
+      }catch (err) {
+         console.log(err);
+      }
+      }   
+
+// const engMenu = () => {
+//    return inquirer.prompt(qnAddEngineer)
+//    .then(function(respEng) {
+//       const engAdd = new Engineer(
+//          respEng.engName
+//          // , respMgr.managerId
+//          // , respMgr.managerEmail
+//          // , respMgr.managerOfficeNumber
+//          );
+//          console.log("In Engineer teamMemberArr:", teamMemberArr);
+//          console.log("Engineer:", engAdd);
+//          teamMemberArr.concat(engAdd);
+//          console.log("In Engineer Input after concat - teamMemberArr:",teamMemberArr);
+//          if (respEng.addMore === 'Oh yes...') {
+//             return mainMenu();
+//          }
+//    });
+// }      
+
+// const subMenuEng = async () => {
+
+//    console.log(welcomeMsg);
+
+//    try {
+
+//       const resEng = await engMenu();
+//       console.log("resEng:", resEng);
+//       console.log(typeof resEng);
+
+//    }catch (err) {
+//       console.log(err);
+//    }
+//    }   
+
+const mainMenu = () => {
+   return inquirer.prompt(qnAddTeamMemberArr)
+   .then(function(respMain) {
+      switch(respMain.addTeamRole) {
+         case "Manager":
+            subMenuMgr();
+            break;
+
+         // case "Engineer":
+         //    subMenuEng();
+         //    break;
+
+
+         // case "Intern":
+            // inquirer.prompt(qAddIntern)
+            // .then(response => {
+            //    const intern = new Intern(
+            //       response.engName
+            //       // , response.managerId
+            //       // , response.managerEmail
+            //       // , response.managerOfficeNumber
+            //       );
+            //       teamMemberArr.push(intern);
+            // });
+            // break;
+            
+         default:
+            console.log("send data to html");
+            return;
+         //  htmlBuilder();
+      }
+   })
+}
+
+
+const qnAddTeamMemberArr2 = [
+   //-- Manager
+   {
+      type: 'input',
+      message: 'The name of this manager of yours?',
+      name: 'mgrName',
+      validate(text) {
+         if (text === "" ) {
+            return 'Oh dear! Blankety blank is not a good name! Please tell me the first name!';
+         }
+         return true;
+      },
+      waitUserInput: true,
+   },
+
+];
+
+const mainMenu2 = () => {
+   return inquirer.prompt(qnAddTeamMemberArr2)
+   }
 
 const init = async () => {
 
@@ -167,7 +319,7 @@ const init = async () => {
    try {
 
       // Call inquirer.js
-      const team = await promptUser();
+      const team = await mainMenu2();
       
       // Generate the markdown file
       console.log("IS IT HERE? team:", team);
@@ -175,14 +327,12 @@ const init = async () => {
 
       const readMeFile = render(team);
 
-      console.log("readMeFile:", readMeFile);
+      await writeFileAsync(`./readmes/`+ outputPath, readMeFile);
 
-      // await writeFileAsync(`./readmes/`+ outputPath, readMeFile);
-
-      // console.log(`\n\n Your fabulous ` + outputPath + ` is done, love! Now, go make a cuppa 🍵 and treat yourself to a choccy bicky 🍪 (or two!)`);
+      console.log(`\n\n Your fabulous ` + outputPath + ` is done, love! Now, go make a cuppa 🍵 and treat yourself to a choccy bicky 🍪 (or two!)`);
 
 
-      // console.log(goodByeMsg);
+      console.log(goodByeMsg);
 
    } catch (err) {
       console.log(err);
