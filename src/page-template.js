@@ -16,9 +16,9 @@ const generateTeam = team => {
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item">ID: ${manager.getId()}<</li>
-                            <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                            <li class="list-group-item">Office extension: ${manager.getOfficeNumber()}</li>
+                            <li class="list-group-item"><i class="fa fa-id-card" aria-hidden="true"></i> ${manager.getId()}<</li>
+                            <li class="list-group-item"><i class="fa fa-envelope-open" aria-hidden="true"></i> <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                            <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> ${manager.getOfficeNumber()}</li>
                             </ul>
                         </div>
                     </div>
@@ -38,9 +38,9 @@ const generateTeam = team => {
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">ID: ${engineer.getId()}</li>
-                        <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                        <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
+                        <li class="list-group-item"><i class="fa fa-id-card" aria-hidden="true"></i> ${engineer.getId()}</li>
+                        <li class="list-group-item"><i class="fa fa-envelope-open" aria-hidden="true"></i> <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+                        <li class="list-group-item"><i class="fab fa-github" aria-hidden="true"></i> <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -50,7 +50,6 @@ const generateTeam = team => {
     // creates the html for interns
     const generateIntern = intern => {
         return `     
-        <!-- Intern 1 -->
         <div class="card employee-card col-4 center">
             <div class="card-header">
                 <h2 class="card-title">${intern.getName()}</h2>
@@ -58,13 +57,12 @@ const generateTeam = team => {
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">ID: ${intern.getId()}</li>
-                        <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-                        <li class="list-group-item">School: ${intern.getSchool()}</li>
+                        <li class="list-group-item"><i class="fa fa-id-card" aria-hidden="true"></i> ${intern.getId()}</li>
+                        <li class="list-group-item"><i class="fa fa-envelope-open" aria-hidden="true"></i> <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                        <li class="list-group-item"><i class="fa fa-university" aria-hidden="true"></i> ${intern.getSchool()}</li>
                         </ul>
                     </div>
-                </div>
-            </div>    
+                </div>  
         `;
     };
 
@@ -140,7 +138,8 @@ export default function render(team) {
 
                         ${generateTeam(team)}
 
-                    </div>
+                        </div>
+                    </div>    
             <!-- ============== -->
             <!-- END INSERT TEAM INFO-->
                 </section>                
