@@ -341,7 +341,7 @@ const promptUserMenu = () => {
             })
       } else {
          
-         console.log(`\n ~~~~~~~~~~ \n Thank you! \n ~~~~~~~~~~`);
+         console.log(`\n ~~~~~~~~~~~~~~~~~~~~ \n Thank you! Job Done! \n ~~~~~~~~~~~~~~~~~~~~`);
          renderHTML(); 
       };
    });
