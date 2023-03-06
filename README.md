@@ -7,7 +7,12 @@ This project is part of the Frontend Dev Boot Camp course challenge for the elev
 It requires us to use the node.js inquirer package and ES6 to dynamically create a command-line README.md generator application that produces a high quality professional README.md. 
 
 ### Methodology: Pseudo Code
-* 
+* Complete all the class definitions for `Employee`, `Manager`, `Engineer` and `Intern`.
+* Attempt to pass all the test as provided by the starter code.
+* Set up inquirer.js prompt questions and looping of menu
+* Render the data to the team.html
+* Restyle team.html.
+
 
 
 
