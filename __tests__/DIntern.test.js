@@ -1,4 +1,4 @@
-const Intern = require("../lib/Intern");
+const Intern = require("../lib_jest/Intern");
 
 
 test("I1: Can set school via constructor", () => {
