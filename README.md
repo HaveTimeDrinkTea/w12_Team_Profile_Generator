@@ -2,9 +2,12 @@
 
 ## Description
 
-This project is part of the Frontend Dev Boot Camp course challenge for the eleventh week "Working with ES6 and Node.js". 
+This project is part of the Frontend Dev Boot Camp course challenge for the twelve week "Test-Driven Development". 
 
-It requires us to use the node.js inquirer package and ES6 to dynamically create a command-line README.md generator application that produces a high quality professional README.md. 
+It requires us to use the node.js, inquirer package and ES6 classes to dynamically create a command-line README.md generator application that produces a Team Profile Generator. We are also expected to demonstrate the use of Jest.js in a test-driven development project.
+
+This application has been created on top of the starter code provided.
+
 
 ### Methodology: Pseudo Code
 * Complete all the class definitions for `Employee`, `Manager`, `Engineer` and `Intern`.
@@ -23,6 +26,10 @@ AS A manager
 I WANT to generate a webpage that displays my team's basic info
 
 SO THAT I have quick access to their email address and GitHub profiles.
+
+
+[Video Demo (1mins 48 secs) Screencastify recording on GDrive](https://drive.google.com/file/d/1l79HqVfi5WG52blP9bp-ruU-CnhoFwrX/view) or click on the embedded video below:
+
 
 
 ## Acceptance Criteria
@@ -120,8 +127,9 @@ SO THAT I have quick access to their email address and GitHub profiles.
 ### Screen Dumps:
 
 
+![screen dump - Application Start](output/teamProfileGenerator.png)
 
-![screen dump](assets/images/)
+![screen dump - Application Ends](output/teamProfileGenerator2.png)
 
 
 ### Sample team.html Page:

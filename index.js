@@ -50,8 +50,6 @@ import * as util from 'util';
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
-// const readFileAsync = util.promisify(fs.readFile);
-
 
 //-- 1.5 Get email validator  
 
