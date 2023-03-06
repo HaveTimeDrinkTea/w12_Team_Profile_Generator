@@ -180,7 +180,7 @@ A command line application which allows a user to record details of the members 
 * Research into making Jest to be ES6 compliant requires a lot of workarounds.
 * The easiest method appears to be using Babel but I think it is beyond the scope of this assignment. 
 
-![Jest Test results screen shots](output/jest_test.jpg)
+![Jest Test results screen shots](output/jest_test.png)
 
 
 ## Contribution
