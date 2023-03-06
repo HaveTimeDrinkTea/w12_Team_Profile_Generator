@@ -2,6 +2,7 @@
 
 import Employee from "../lib/Employee";
 
+
 test("E1 Can instantiate Employee instance", () => {
   const e = new Employee();
   expect(typeof(e)).toBe("object");

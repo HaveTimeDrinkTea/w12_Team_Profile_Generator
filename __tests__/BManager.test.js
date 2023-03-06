@@ -5,6 +5,7 @@
 import Employee from "../lib/Employee";
 import Manager from "../lib/Manager";
 
+
 test("M1 Can set office number via constructor argument", () => {
   const testValue = 100;
   const e = new Manager("Foo", 1, "test@test.com", testValue);

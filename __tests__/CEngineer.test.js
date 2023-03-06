@@ -2,6 +2,7 @@
 
 import Engineer from "../lib/Engineer";
 
+
 test("Eng1: Can set GitHUb account via constructor", () => {
   const testValue = "GitHubUser";
   const e = new Engineer("Foo", 1, "test@test.com", testValue);
