@@ -7,7 +7,12 @@ This project is part of the Frontend Dev Boot Camp course challenge for the elev
 It requires us to use the node.js inquirer package and ES6 to dynamically create a command-line README.md generator application that produces a high quality professional README.md. 
 
 ### Methodology: Pseudo Code
-* 
+* Complete all the class definitions for `Employee`, `Manager`, `Engineer` and `Intern`.
+* Attempt to pass all the test as provided by the starter code.
+* Set up inquirer.js prompt questions and looping of menu
+* Render the data to the team.html
+* Restyle team.html.
+
 
 
 
@@ -180,7 +185,7 @@ A command line application which allows a user to record details of the members 
 * Research into making Jest to be ES6 compliant requires a lot of workarounds.
 * The easiest method appears to be using Babel but I think it is beyond the scope of this assignment. 
 
-![Jest Test results screen shots](output/jest_test.jpg)
+![Jest Test results screen shots](output/jest_test.png)
 
 
 ## Contribution
