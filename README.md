@@ -134,8 +134,6 @@ SO THAT I have quick access to their email address and GitHub profiles.
 
 
 
-
-
 ## License 
 
 MIT License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -168,6 +166,21 @@ A command line application which allows a user to record details of the members 
 ## Testing
 * This application has been tested as part of the starter code test using Jest.js. These are tests on the `Employee`, `Manager`, `Engineer` and `Intern` classes only.
 
+
+
+### Classes in ES6 (& beyond) for Running the Application
+
+* As this week's class is also about ES6 (& beyond), I have coded these four classes in ES6 (i.e. use of `export default` and `import from`).
+* These classes are stored in the `lib` directory and are used for running the application.
+
+### Classes in CommonJS for JEST Testing
+
+* I have to make minor changes to these classes in dir `lib_jest` and coded them in commonJS for Jest testing purposes. (i.e. use of `require()` and `module.exports`)
+* As ES6 is yet to be fully supported in JEST [(click link)](https://jestjs.io/docs/ecmascript-modules), I have created the classes listed above in CommonJS and ensured that all tests from the starter code are passed.
+* Research into making Jest to be ES6 compliant requires a lot of workarounds.
+* The easiest method appears to be using Babel but I think it is beyond the scope of this assignment. 
+
+![Jest Test results screen shots](output/jest_test.jpg)
 
 
 ## Contribution
