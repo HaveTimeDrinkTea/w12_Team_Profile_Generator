@@ -65,26 +65,31 @@ input[type="text"] {
 }
 
 .jumbotron {
-  text-align: center;
-  background-color: transparent;
+  padding: 2rem !important;
+  margin: auto !important;
+  width: 80%;
   color: var(--colorWhite);
   border-radius: 0;
-  border: 0 !important;
-  margin: 0 !important;
-  padding: 20px !important;
-  /* border-bottom: 10px solid black; */
-
+  border: 0.3rem solid var(--colorWhite) !important;
+  background-color: var(--colorBrownMonkey);
+  width: 80%; 
+  margin-bottom: 2rem !important;
+  margin-top: 2rem !important;
 }
 
 .team-area {
-  background-color: var(--colorOrange);
+  background-color: var(--colorGreen);
+  padding: 2rem !important;
+  margin: auto !important;
+  width: 80%;
+  border: 0.3rem solid var(--colorWhite) !important;
 }
 
 header::after,
 footer::after {
   content: " ";
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: 80%;
   height: 2px;
 }
 
@@ -146,19 +151,8 @@ h2 {
   color: var(--colorWhite);
   text-transform: capitalize;
   text-align: center;
-  padding-top: 8rem;
 }
 
-.h2Fore {
-  font-size: 3rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  width: 80%;
-  text-align: center;
-  margin: 2rem auto;
-  border: 0.3rem solid var(--colorWhite);
-  background-color: var(--colorPink);
-}
 
 h3 {
   font-size: 2.3em;
@@ -169,20 +163,6 @@ h3 {
 }
 
 
-.h3Top {
-  padding-top: 2rem;
-}
-
-.h3Middle {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-
-}
-
-.h3Bottom {
-  padding-bottom: 2rem;
-}
-
 h4 {
   font-size: 1.7rem;
   text-align: center;
@@ -191,10 +171,6 @@ h4 {
   text-align: center;
 }
 
-.h4IconDesc {
-  padding-top: 1rem;
-
-}
 
 h5, 
 h6 {
@@ -233,77 +209,62 @@ h6 {
 
 /* cards */
 
-.card-header {
-  border: 0.2rem solid var(--colorWhite) !important;
+.employee-card {
   background-color: var(--colorElectricBlue);
-  padding: 0px;
-  margin: 0;
+  padding: 1rem !important;
+  margin: 1rem 0rem !important;
+  /* margin-bottom: 1rem !important;
+  margin-top: 1rem !important; */
   font-size: 1rem;
+  border: 0.3rem solid var(--colorWhite) !important;
+  width: 80%;
+}
+
+
+.card-header {
+  display: inline-block;
+  background-color: var(--colorOrange);
+  padding: 2rem;
+  margin: 1rem !important;
+  font-size: 1rem;
+  border: 0.2rem solid var(--colorWhite) !important;
 }
 
 
 .card-body {
   font-size: 1.5rem;
   padding: 2px;
-  margin: 0 !important;
-  background-color: var(--colorGreen);
-  border: 0.1rem solid var(--colorWhite) !important;
+  width: 100;
+  margin: auto !important;
+  background-color: var(--colorElectricBlue);
+  /* border: 0.1rem solid var(--colorWhite) !important; */
 }
 
 .list-group {
   display: inline-block;
-  padding: 0.5rem;
+  padding: 0rem;
   font-size: 1.5rem;
-  margin: 0 !important;
+  margin: auto !important;
   width: 100%;
   text-align: center;
-  background-color: var(--colorOrange);
-  border: 0.1rem solid var(--colorWhite) !important;
+  /* border: 0.1rem solid var(--colorWhite) !important; */
   outline: auto;
 }
 
 .list-group-item {
   display: inline-block;
-  padding: 0.5rem;
+  padding: 0.3rem;
   font-size: 1.5rem;
-  margin: 0 !important;
+  margin: auto!important;
   width: 100%;
   text-align: center;
-  background-color: var(--colorOrange);
-  border: 0.1rem solid var(--colorWhite) !important;
+  background-color: var(--colorMustard);
   outline: auto;
 }
 
-.attr{
-  font-size: 0.9rem;
-  padding: 3px;
-  background-color: var(--colorPink);
-}
 
 
-/* search cards */
 
-.searchBtnsRow {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.cardButtons {
-  border: 0 !important;
-  padding: 0;
-  margin: 0;
-  background-color: var(--colorElectricBlue) !important;
-}
-
-.card-body-btn {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.foreDesc {
-  font-size: 0.8rem;
-  line-height: 0rem;
-}
 
 
 
