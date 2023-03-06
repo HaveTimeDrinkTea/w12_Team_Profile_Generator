@@ -1,5 +1,5 @@
-const Manager = require("../lib/Manager");
-const Employee = require("../lib/Employee");
+const Manager = require("../lib_jest/Manager");
+const Employee = require("../lib_jest/Employee");
 
 
 

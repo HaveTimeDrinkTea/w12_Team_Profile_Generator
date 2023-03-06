@@ -16,7 +16,7 @@ const generateTeam = team => {
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item"><i class="fa fa-id-card" aria-hidden="true"></i> ${manager.getId()}<</li>
+                            <li class="list-group-item"><i class="fa fa-id-card" aria-hidden="true"></i> ${manager.getId()}</li>
                             <li class="list-group-item"><i class="fa fa-envelope-open" aria-hidden="true"></i> <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
                             <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> ${manager.getOfficeNumber()}</li>
                             </ul>
