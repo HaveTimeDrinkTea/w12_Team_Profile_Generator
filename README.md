@@ -120,7 +120,12 @@ SO THAT I have quick access to their email address and GitHub profiles.
 
 
 ### Sample team.html Page:
-[Sample team.html page](output/team.html)
+
+[Sample team.html](output/team-sample.html)
+
+[Sample team.html pdf](output/team-sample.pdf)
+
+![Sample team.html jpg](output/team-sample.jpg)
 
 
 ## Credits
