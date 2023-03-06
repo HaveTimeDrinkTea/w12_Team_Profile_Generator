@@ -295,6 +295,9 @@ const promptUserMgr = () => {
    });
 };
 
+
+
+
 const promptUserMenu = () => {
    return inquirer.prompt(qnMain)
    .then(respMenu => {
@@ -306,7 +309,7 @@ const promptUserMenu = () => {
                   toCapitalize(respEng.engName)
                   , respEng.engID
                   , respEng.engEmail
-                  , respEng.engGithub
+                  , (respEng.engGithub).replace(/\s/g, '')
                );
             teamArr.push(engObj);
             
