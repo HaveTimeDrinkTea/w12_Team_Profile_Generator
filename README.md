@@ -28,7 +28,13 @@ I WANT to generate a webpage that displays my team's basic info
 SO THAT I have quick access to their email address and GitHub profiles.
 
 
-[Video Demo (1mins 48 secs) Screencastify recording on GDrive](https://drive.google.com/file/d/1l79HqVfi5WG52blP9bp-ruU-CnhoFwrX/view) or click on the embedded video below:
+[Video Demo (1mins 53 secs) Screencastify recording on GDrive](https://drive.google.com/file/d/1l79HqVfi5WG52blP9bp-ruU-CnhoFwrX/view) or click on the embedded video below:
+
+
+
+
+https://user-images.githubusercontent.com/119045159/223231937-129c144a-4973-4f15-9cb4-529c7c901883.mp4
+
 
 
 
@@ -166,14 +172,18 @@ A command line application which allows a user to record details of the members 
   * Manager's telephone extension can only be numeric and has to be of 4-digit length.
   * All employee IDs are to be 3-digit
   * All emails are to be of the right email format (name@domain.tld).
+  * Engineer's GitHub username will have any spaces stripped off.
   
   
 ### Future Developments
+* Allow employee ID to be sequentially generated without any user input. 
+  * This can be achieved by storing the last employee ID in a log.txt file. 
 * Verify Engineer's GitHub user name against GitHub API
 * Allow the set up of multiple teams
 * Allow assignment of intern(s) to engineer or manager
 * Allow a "super manager" in case of multiple teams
-* Allow employee ID to be sequentially generated without any user input. This can be achieved by storing the last employee ID in a log.txt file. 
+* Alow the (dynamic) rendering of any number of engineers and interns. (The current state of this application takes in 2 engineers and 3 interns as the MVP for deployment.)
+
 
 
 ## Testing
