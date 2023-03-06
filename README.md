@@ -142,6 +142,8 @@ https://user-images.githubusercontent.com/119045159/223231937-129c144a-4973-4f15
 
 [Sample team.html](output/team-sample.html)
 
+[Preview Sample team.html ](https://htmlpreview.github.io/?https://github.com/HaveTimeDrinkTea/w12_Team_Profile_Generator/blob/main/output/team-sample.html)
+
 [Sample team.html pdf](output/team-sample.pdf)
 
 ![Sample team.html jpg](output/team-sample.jpg)
